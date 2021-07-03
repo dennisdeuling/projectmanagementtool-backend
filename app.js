@@ -11,7 +11,7 @@ const path = require('path');
 
 const app_name = require('./package.json').name;
 const debug = require('debug')(
-    `${app_name}:${path.basename(__filename).split('.')[0]}`
+	`${app_name}:${path.basename(__filename).split('.')[0]}`
 );
 
 const app = express();
@@ -26,16 +26,27 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 // Express View engine setup
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
 // default value for title local
-app.locals.title = 'Express - Generated with IronGenerator';
+app.locals.title = 'This is the backend from dennis';
 
-const index = require('./routes/index');
+const index = require('./routes/index.route');
 app.use('/', index);
+
+const user = require('./routes/user.route');
+app.use('/api/user', user);
+
+const client = require('./routes/client.route');
+app.use('/api/client', client);
+
+const project = require('./routes/project.route');
+app.use('/api/project', project);
+
+const ticket = require('./routes/ticket.route');
+app.use('/api/ticket', ticket);
 
 module.exports = app;

@@ -31,6 +31,7 @@
     "trailingComma": "none",
     "useTabs": true,
     "jsxSingleQuote": false,
-    "printWidth": 80
+    "printWidth": 80,
+    "arrowParens": "avoid"
   }
 }
