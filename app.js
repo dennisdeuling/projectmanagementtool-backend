@@ -73,6 +73,9 @@ app.locals.title = 'This is the backend from dennis';
 const index = require('./routes/index.route');
 app.use('/', index);
 
+const auth = require('./routes/auth.route');
+app.use('/api/auth', auth);
+
 const user = require('./routes/user.route');
 app.use('/api/user', user);
 

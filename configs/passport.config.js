@@ -21,9 +21,7 @@ passport.use(new LocalStrategy({
 		usernameField: 'email'
 	},
 	(email, password, done) => {
-		User.findOne({
-			email: email
-		})
+		User.findOne({email})
 			.then(user => {
 				if (!user) {
 					return done(null, false, {
@@ -31,7 +29,7 @@ passport.use(new LocalStrategy({
 					});
 				}
 
-				if (bcrypt.compare(password, user.passwordHash)) {
+				if (bcrypt.compare(password, user.passwordHashed)) {
 					return done(null, user);
 				} else {
 					return done(null, false, {

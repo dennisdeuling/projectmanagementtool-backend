@@ -8,24 +8,29 @@ const users = [
 		_id: mongoose.Types.ObjectId('60df628c8a8131bf8704bc77'),
 		name: 'Dennis Deuling',
 		email: 'dennis@dennis.de',
-		password: '1234',
+		passwordHashed: '1234',
 		position: 'admin',
+		projectmanagers: [
+			mongoose.Types.ObjectId('60df628c8a8131bf8704bc77'),
+			mongoose.Types.ObjectId('60df628c8a8131bf8704bc78'),
+			mongoose.Types.ObjectId('60df628c8a8131bf8704bc79')
+		],
 		created_ad: timeStamp()
 	},
 	{
 		_id: mongoose.Types.ObjectId('60df628c8a8131bf8704bc78'),
-		name: 'Dennis Deuling',
-		email: 'dennis@dennis.de',
-		password: '1234',
+		name: 'John Doe',
+		email: 'john.doe@example.com',
+		passwordHashed: '1234',
 		position: 'projectmanager',
 		created_ad: timeStamp()
 	},
 	{
 		_id: mongoose.Types.ObjectId('60df628c8a8131bf8704bc79'),
-		name: 'Dennis Deuling',
-		email: 'dennis@dennis.de',
-		password: '1234',
-		position: 'client',
+		name: 'Max Mustermann',
+		email: 'max.mustermann@example.com',
+		passwordHashed: '1234',
+		position: 'projectmanager',
 		created_ad: timeStamp()
 	}
 ];

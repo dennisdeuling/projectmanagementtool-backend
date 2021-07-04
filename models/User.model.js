@@ -10,7 +10,7 @@ const userSchema = new Schema({
 		type: String,
 		required: false
 	},
-	password: {
+	passwordHashed: {
 		type: String,
 		required: false
 	},
@@ -19,6 +19,10 @@ const userSchema = new Schema({
 		enum: ['admin', 'projectmanager', 'client'],
 		required: false
 	},
+	projectmanagers: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	}],
 	created_at: {
 		type: Date,
 		required: false
