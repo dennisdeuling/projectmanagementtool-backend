@@ -4,6 +4,7 @@ const clientRoute = express.Router();
 
 // Database models
 const Client = require('../models/Client.model');
+const User = require('../models/User.model');
 
 clientRoute.get('/', (req, res, next) => {
 	Client.find()
@@ -25,8 +26,20 @@ clientRoute.get('/:clientId', (req, res, next) => {
 		});
 });
 
+clientRoute.get('/findClientByUserId/:userId', (req, res, next) => {
+	const { userId } = req.params;
+
+	Client.find({ relatedToUser: userId })
+		.then(client => {
+			res.json(client);
+		})
+		.catch(error => {
+			res.status(500).json(error);
+		});
+});
+
 clientRoute.post('/create', (req, res, next) => {
-	const { name, address } = req.body;
+	const { name, address } = req.body.newData;
 
 	Client.create({
 		name,
@@ -41,11 +54,9 @@ clientRoute.post('/create', (req, res, next) => {
 });
 
 clientRoute.put('/:clientId', (req, res, next) => {
-	Client.findByIdAndUpdate(req.params.clientId, req.body)
-		.then(() => {
-			res.json({
-				message: `Client with the id ${req.params.clientId} is updated successfully`
-			});
+	Client.findByIdAndUpdate(req.params.clientId, req.body.newData, { new: true })
+		.then(data => {
+			res.json(data);
 		})
 		.catch(error => {
 			res.status(500).json(error);
@@ -53,15 +64,15 @@ clientRoute.put('/:clientId', (req, res, next) => {
 });
 
 clientRoute.delete('/:clientId', (req, res, next) => {
-    Client.findByIdAndRemove(req.params.clientId)
-        .then(() => {
-            res.json({
-                message: `Client with the id ${req.params.clientId} is deleted successfully`
-            });
-        })
-        .catch(error => {
-            res.status(500).json(error);
-        });
+	Client.findByIdAndRemove(req.params.clientId)
+		.then(() => {
+			res.json({
+				message: `Client with the id ${req.params.clientId} is deleted successfully`
+			});
+		})
+		.catch(error => {
+			res.status(500).json(error);
+		});
 });
 
 module.exports = clientRoute;

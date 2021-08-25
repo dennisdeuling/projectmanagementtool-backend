@@ -15,6 +15,21 @@ const users = [
 			mongoose.Types.ObjectId('60df628c8a8131bf8704bc78'),
 			mongoose.Types.ObjectId('60df628c8a8131bf8704bc79')
 		],
+		clients: [
+			mongoose.Types.ObjectId('60df65617d58c6c09bdb664b'),
+			mongoose.Types.ObjectId('60df65617d58c6c09bdb664c'),
+			mongoose.Types.ObjectId('60df65617d58c6c09bdb664d')
+		],
+		projects: [
+			mongoose.Types.ObjectId('60df66f02f1f51c10ce225f7'),
+			mongoose.Types.ObjectId('60df66f02f1f51c10ce225f8'),
+			mongoose.Types.ObjectId('60df66f02f1f51c10ce225f9')
+		],
+		tickets: [
+			mongoose.Types.ObjectId('60df6acb56a961c21035c7ff'),
+			mongoose.Types.ObjectId('60df6acb56a961c21035c800'),
+			mongoose.Types.ObjectId('60df6acb56a961c21035c801')
+		],
 		created_ad: timeStamp()
 	},
 	{
@@ -23,6 +38,21 @@ const users = [
 		email: 'john.doe@example.com',
 		passwordHashed: '1234',
 		position: 'projectmanager',
+		clients: [
+			mongoose.Types.ObjectId('60df65617d58c6c09bdb664b'),
+			mongoose.Types.ObjectId('60df65617d58c6c09bdb664c'),
+			mongoose.Types.ObjectId('60df65617d58c6c09bdb664d')
+		],
+		projects: [
+			mongoose.Types.ObjectId('60df66f02f1f51c10ce225f7'),
+			mongoose.Types.ObjectId('60df66f02f1f51c10ce225f8'),
+			mongoose.Types.ObjectId('60df66f02f1f51c10ce225f9')
+		],
+		tickets: [
+			mongoose.Types.ObjectId('60df6acb56a961c21035c7ff'),
+			mongoose.Types.ObjectId('60df6acb56a961c21035c800'),
+			mongoose.Types.ObjectId('60df6acb56a961c21035c801')
+		],
 		created_ad: timeStamp()
 	},
 	{
@@ -31,6 +61,21 @@ const users = [
 		email: 'max.mustermann@example.com',
 		passwordHashed: '1234',
 		position: 'projectmanager',
+		clients: [
+			mongoose.Types.ObjectId('60df65617d58c6c09bdb664b'),
+			mongoose.Types.ObjectId('60df65617d58c6c09bdb664c'),
+			mongoose.Types.ObjectId('60df65617d58c6c09bdb664d')
+		],
+		projects: [
+			mongoose.Types.ObjectId('60df66f02f1f51c10ce225f7'),
+			mongoose.Types.ObjectId('60df66f02f1f51c10ce225f8'),
+			mongoose.Types.ObjectId('60df66f02f1f51c10ce225f9')
+		],
+		tickets: [
+			mongoose.Types.ObjectId('60df6acb56a961c21035c7ff'),
+			mongoose.Types.ObjectId('60df6acb56a961c21035c800'),
+			mongoose.Types.ObjectId('60df6acb56a961c21035c801')
+		],
 		created_ad: timeStamp()
 	}
 ];

@@ -20,6 +20,10 @@ const clientSchema = new Schema({
 			required: false
 		}
 	},
+	relatedToUser: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	},
 	created_at: {
 		type: Date,
 		required: false

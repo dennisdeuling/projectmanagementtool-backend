@@ -23,6 +23,18 @@ const userSchema = new Schema({
 		type: mongoose.Schema.Types.ObjectId,
 		ref: 'User'
 	}],
+	clients: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Client'
+	}],
+	projects: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Project'
+	}],
+	tickets: [{
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'Ticket'
+	}],
 	created_at: {
 		type: Date,
 		required: false

@@ -10,6 +10,10 @@ const projectSchema = new Schema({
 		type: String,
 		required: false
 	},
+	relatedToUser: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	},
 	created_at: {
 		type: Date,
 		required: false

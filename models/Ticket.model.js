@@ -20,6 +20,10 @@ const ticketSchema = new Schema({
         enum: [0, 15, 30, 45],
         required: false
     },
+	relatedToUser: {
+		type: mongoose.Schema.Types.ObjectId,
+		ref: 'User'
+	},
 	created_at: {
 		type: Date,
 		required: false
