@@ -1,9 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const userRoute = express.Router();
+const nodemailer = require('nodemailer');
+const sendEmail = require('../configs/nodemailer.config');
 
 // Database models
 const User = require('../models/User.model');
+const Admin = require('../models/user/Admin.model');
+const Projectmanager = require('../models/user/Projectmanager.model');
+const Contact = require('../models/user/Contact.model');
 
 userRoute.get('/', (req, res, next) => {
 	User.find()
@@ -32,17 +37,18 @@ userRoute.get('/:userId', (req, res, next) => {
 userRoute.post('/create', (req, res, next) => {
 	const { name, email, password: passwordHashed } = req.body;
 
-	User.create({
+	Projectmanager.create({
 		name,
 		email,
-		passwordHashed,
-		position: 'projectmanager'
+		passwordHashed
 	})
 		.then(newUser => {
 			console.log(newUser);
 			res.json(newUser);
+			sendEmail(newUser);
 		})
 		.catch(error => {
+			console.log(error);
 			res.status(500).json(error);
 		});
 });
