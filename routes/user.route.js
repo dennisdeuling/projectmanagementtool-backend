@@ -54,11 +54,9 @@ userRoute.post('/create', (req, res, next) => {
 });
 
 userRoute.put('/:userId', (req, res, next) => {
-	User.findByIdAndUpdate(req.params.userId, req.body)
-		.then(() => {
-			res.json({
-				message: `User with the id ${req.params.userId} is updated successfully`
-			});
+	User.findByIdAndUpdate(req.params.userId, req.body.newData, { new: true })
+		.then(data => {
+			res.json(data);
 		})
 		.catch(error => {
 			res.status(500).json(error);
